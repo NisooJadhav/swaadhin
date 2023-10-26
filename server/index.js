@@ -14,7 +14,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
+const collegeRoutes = require("./routes/collegeRoutes");
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/user", collegeRoutes);
 
 mongoose.connect(
   process.env.MONGO_URI,

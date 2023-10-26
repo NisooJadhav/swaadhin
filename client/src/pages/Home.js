@@ -1,7 +1,12 @@
-export default function Home() {
+export default function Home({ isLoggedIn }) {
   return (
     <>
       <h3>Home</h3>
+      {isLoggedIn ? (
+        <h4>Welcome! You are logged in.</h4>
+      ) : (
+        <h4>Welcome! Please log in.</h4>
+      )}
       <center>
         <h4>
           <a

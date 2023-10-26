@@ -49,7 +49,6 @@ const Signup = () => {
         "/api/auth/signup/student",
         studentFormData
       );
-      console.log(response.data);
       alert("Student registered successfully!");
       window.location.replace("/login");
     } catch (error) {
@@ -64,7 +63,6 @@ const Signup = () => {
         "/api/auth/signup/college",
         collegeFormData
       );
-      console.log(response.data);
       alert("College registered successfully!");
       window.location.replace("/login");
     } catch (error) {

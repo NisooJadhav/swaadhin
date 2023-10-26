@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -8,14 +9,24 @@ import Signup from "./pages/Signup";
 import "./style.css";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
       <div className="App">
         <Router>
-          <Navbar />
+          <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            <Route
+              path="/"
+              element={
+                <Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+              }
+            />
+            <Route
+              path="/login"
+              element={<Login setIsLoggedIn={setIsLoggedIn} />}
+            />
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </Router>

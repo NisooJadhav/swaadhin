@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setIsLoggedIn }) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    collegeUsername: "", // Add collegeUsername to the state
-    collegePassword: ""  // Add collegePassword to the state
+    collegeUsername: "",
+    collegePassword: "",
   });
 
   const handleChange = (e) => {
@@ -17,7 +20,7 @@ const Login = () => {
 
   const handleStudentLogin = async () => {
     try {
-      const response = await fetch("api/auth/login/student", {
+      const response = await fetch("/api/auth/login/student", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,10 +32,14 @@ const Login = () => {
       });
 
       const data = await response.json();
+      const accessToken = data.token;
+      localStorage.setItem("accessToken", accessToken);
 
       if (response.ok) {
         window.alert("Student logged in successfully!");
-        window.location.replace("/");
+        setIsLoggedIn(true);
+        localStorage.setItem("setIsLoggedIn", "true");
+        navigate("/");
       } else {
         console.error(data.message);
       }
@@ -43,7 +50,7 @@ const Login = () => {
 
   const handleCollegeLogin = async () => {
     try {
-      const response = await fetch("api/auth/login/college", {
+      const response = await fetch("/api/auth/login/college", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,10 +62,14 @@ const Login = () => {
       });
 
       const data = await response.json();
+      const accessToken = data.token;
+      localStorage.setItem("accessToken", accessToken);
 
       if (response.ok) {
         window.alert("College logged in successfully!");
-        window.location.replace("/");
+        setIsLoggedIn(true);
+        localStorage.setItem("setIsLoggedIn", "true");
+        navigate("/");
       } else {
         console.error(data.message);
       }
