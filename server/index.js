@@ -38,3 +38,7 @@ app.get('/UDIDDATA.csv', (req, res) => {
   const filePath = path.join(__dirname, 'UDIDDATA.csv');
   res.sendFile(filePath);
 });
+
+app.get('/', (req, res) => {
+  res.send('Swaadhin API running 🥳')
+})
