@@ -45,3 +45,27 @@ select {
 .hearing-aid {
   width: 30vw;
 }
+.dashboard {
+  display: flex;
+  flex-direction: row;
+}
+.sidebar {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 20vw;
+  height: 90vh;
+  background: #eee;
+  border-right: 1px solid #11111125;
+}
+.content {
+  width: 80vw;
+  height: 90vh;
+  background: #eeeeee50;
+  padding: 20px;
+}
+.content h5{
+  font-weight: normal;
+}

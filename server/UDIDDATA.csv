@@ -1,4 +1,4 @@
-state_name,district_name,disability_type,age_group (Years),male_count,female_count,total
+state_name,district_name,disability_type,age_group,male_count,female_count,total
 Maharashtra,Yavatmal,Acid Attack Victim,35-60 Years,1,0,1
 Maharashtra,Yavatmal,Acid Attack Victim,60-80 Years,0,1,1
 Haryana,Yamunanagar,Acid Attack Victim,15-35 Years,1,0,1

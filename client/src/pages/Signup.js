@@ -99,6 +99,7 @@ const Signup = () => {
   return (
     <>
       <center>
+        <img src="logo.png" style={{ width: "15%", marginTop: "10px" }} />
         <h3>Register</h3>
       </center>
       <div className="mainLogin">
@@ -255,7 +256,9 @@ const Signup = () => {
             Register
           </button>
         </div>
-
+        <div
+          style={{ width: "1px", background: "#55555550", height: "80vh" }}
+        ></div>
         <div>
           <h3>School/College Registration</h3>
           <input

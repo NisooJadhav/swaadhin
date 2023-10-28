@@ -8,8 +8,10 @@ import Signup from "./pages/Signup";
 
 import Job from "./components/Job";
 import Stats from "./components/Stats";
+import Dashboard from "./components/Dashboard";
 
 import "./style.css";
+import Feedback from "./components/Feedback";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,6 +35,8 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/jobs" element={<Job />} />
             <Route path="/stats" element={<Stats />} />
+            <Route path="/feedback" element={<Feedback />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </Router>
       </div>

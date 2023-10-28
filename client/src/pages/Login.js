@@ -81,6 +81,7 @@ const Login = ({ setIsLoggedIn }) => {
   return (
     <>
       <center>
+        <img src="logo.png" style={{ width: "15%", marginTop: "10px" }} />
         <h3>Login</h3>
       </center>
       <div className="mainLogin">
@@ -99,10 +100,14 @@ const Login = ({ setIsLoggedIn }) => {
             value={formData.password}
             onChange={handleChange}
           />
+          <br />
           <button className="icon-paper-plane" onClick={handleStudentLogin}>
             Log In
           </button>
         </div>
+        <div
+          style={{ width: "1px", background: "#55555550", height: "60vh" }}
+        ></div>
         <div>
           <h3>School/College Login</h3>
           <input
@@ -118,6 +123,7 @@ const Login = ({ setIsLoggedIn }) => {
             value={formData.collegePassword}
             onChange={handleChange}
           />
+          <br />
           <button className="icon-paper-plane" onClick={handleCollegeLogin}>
             Log In
           </button>

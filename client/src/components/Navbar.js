@@ -66,9 +66,17 @@ const Navbar = ({ setIsLoggedIn, isLoggedIn }) => {
           <Link to="/" className="brand">
             <img className="logo" src="logo.png" alt="Logo" />
             &nbsp;&nbsp;&nbsp;
-            <img className="logo" src="https://amritmahotsav.nic.in/writereaddata/portal/images/logo-black.png" alt="Logo" />
+            <img
+              className="logo"
+              src="https://amritmahotsav.nic.in/writereaddata/portal/images/logo-black.png"
+              alt="Logo"
+            />
             &nbsp;&nbsp;
-            <img className="logo" src="https://www.g20.org/content/dam/gtwenty/header-footer/header/g20-logo.png" alt="Logo" />
+            <img
+              className="logo"
+              src="https://www.g20.org/content/dam/gtwenty/header-footer/header/g20-logo.png"
+              alt="Logo"
+            />
           </Link>
           <input id="bmenub" type="checkbox" className="show" />
 
@@ -76,12 +84,40 @@ const Navbar = ({ setIsLoggedIn, isLoggedIn }) => {
             Menu
           </label>
 
-          <div className="menu">
+          <div
+            className="menu"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              alignContent: "center",
+            }}
+          >
             <Link to="/stats">Stats</Link>
+            <Link to="/feedback">Feedback</Link>
             <Link to="/jobs">Jobs</Link>
             {isLoggedIn ? (
               <>
-                <span>Welcome, {userName}</span>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  Welcome{" "}
+                  <img
+                    src="https://nisootech.vercel.app/images/logo.webp"
+                    style={{
+                      width: "35px",
+                      borderRadius: "50%",
+                      margin: "5px",
+                      padding: "0",
+                    }}
+                  />
+                  {userName}
+                </div>
                 <button className="button icon-user" onClick={handleLogout}>
                   Logout
                 </button>
