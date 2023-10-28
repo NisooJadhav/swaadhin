@@ -7,7 +7,7 @@ const ChartComponent = () => {
   const chartRef = useRef(null);
 
   useEffect(() => {
-    Papa.parse("/UDIDDATA.csv", {
+    Papa.parse("./UDIDDATA.csv", {
       header: true,
       download: true,
       skipEmptyLines: true,

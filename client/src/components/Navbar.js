@@ -67,7 +67,7 @@ const Navbar = ({ setIsLoggedIn, isLoggedIn }) => {
             <img className="logo" src="logo.png" alt="Logo" />
             &nbsp;&nbsp;&nbsp;
             <img className="logo" src="https://amritmahotsav.nic.in/writereaddata/portal/images/logo-black.png" alt="Logo" />
-            &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;
             <img className="logo" src="https://www.g20.org/content/dam/gtwenty/header-footer/header/g20-logo.png" alt="Logo" />
           </Link>
           <input id="bmenub" type="checkbox" className="show" />
