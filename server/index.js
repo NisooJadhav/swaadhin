@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const path = require('path');
 
 dotenv.config();
 
@@ -31,4 +32,9 @@ mongoose.connect(
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+app.get('/UDIDDATA.csv', (req, res) => {
+  const filePath = path.join(__dirname, 'UDIDDATA.csv');
+  res.sendFile(filePath);
 });

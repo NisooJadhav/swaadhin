@@ -14,6 +14,7 @@ const Signup = () => {
     state: "",
     city: "",
     gender: "",
+    profilePic: null,
   });
 
   const [collegeFormData, setCollegeFormData] = useState({
@@ -26,29 +27,49 @@ const Signup = () => {
     strength: "",
     state: "",
     city: "",
+    profilePic: null,
   });
 
   const handleStudentChange = (e) => {
-    setStudentFormData({
-      ...studentFormData,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.name === "profilePic") {
+      setStudentFormData({
+        ...studentFormData,
+        [e.target.name]: e.target.files[0], // Set profilePic to the selected file
+      });
+    } else {
+      setStudentFormData({
+        ...studentFormData,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const handleCollegeChange = (e) => {
-    setCollegeFormData({
-      ...collegeFormData,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.name === "profilePic") {
+      setCollegeFormData({
+        ...collegeFormData,
+        [e.target.name]: e.target.files[0],
+      });
+    } else {
+      setCollegeFormData({
+        ...collegeFormData,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const handleStudentSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    for (const key in studentFormData) {
+      formData.append(key, studentFormData[key]);
+    }
     try {
-      const response = await axios.post(
-        "/api/auth/signup/student",
-        studentFormData
-      );
+      const response = await axios.post("/api/auth/signup/student", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       alert("Student registered successfully!");
       window.location.replace("/login");
     } catch (error) {
@@ -58,12 +79,17 @@ const Signup = () => {
 
   const handleCollegeSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    for (const key in collegeFormData) {
+      formData.append(key, collegeFormData[key]);
+    }
     try {
-      const response = await axios.post(
-        "/api/auth/signup/college",
-        collegeFormData
-      );
-      alert("College registered successfully!");
+      const response = await axios.post("/api/auth/signup/college", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      alert("School/College registered successfully!");
       window.location.replace("/login");
     } catch (error) {
       console.error(error);
@@ -216,6 +242,14 @@ const Signup = () => {
               <option value="other">Other</option>
             </select>
           </div>
+          <div className="form-group">
+            <input
+              type="file"
+              name="profilePic"
+              accept="image/*"
+              onChange={handleStudentChange}
+            />
+          </div>
           <br />
           <button className="icon-paper-plane" onClick={handleStudentSubmit}>
             Register
@@ -223,7 +257,7 @@ const Signup = () => {
         </div>
 
         <div>
-          <h3>College Registration</h3>
+          <h3>School/College Registration</h3>
           <input
             placeholder="Username"
             name="username"
@@ -258,7 +292,7 @@ const Signup = () => {
             onChange={handleCollegeChange}
           />
           <input
-            placeholder="AICTE Number"
+            placeholder="Affiliation/AICTE/AISHE Number"
             type="number"
             name="aicteNumber"
             value={collegeFormData.aicteNumber}
@@ -320,6 +354,12 @@ const Signup = () => {
             placeholder="City"
             name="city"
             value={collegeFormData.city}
+            onChange={handleCollegeChange}
+          />
+          <input
+            type="file"
+            name="profilePic"
+            accept="image/*"
             onChange={handleCollegeChange}
           />
           <button className="icon-paper-plane" onClick={handleCollegeSubmit}>

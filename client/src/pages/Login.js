@@ -66,7 +66,7 @@ const Login = ({ setIsLoggedIn }) => {
       localStorage.setItem("accessToken", accessToken);
 
       if (response.ok) {
-        window.alert("College logged in successfully!");
+        window.alert("School/College logged in successfully!");
         setIsLoggedIn(true);
         localStorage.setItem("setIsLoggedIn", "true");
         navigate("/");
@@ -104,7 +104,7 @@ const Login = ({ setIsLoggedIn }) => {
           </button>
         </div>
         <div>
-          <h3>College Login</h3>
+          <h3>School/College Login</h3>
           <input
             placeholder="college-username"
             name="collegeUsername"

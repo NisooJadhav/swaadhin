@@ -38,6 +38,10 @@ const collegeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  profilePic: {
+    type: String,
+    required: false,
+  },
 });
 
 const College = mongoose.model("College", collegeSchema);

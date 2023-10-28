@@ -20,9 +20,7 @@ const Navbar = ({ setIsLoggedIn, isLoggedIn }) => {
             Authorization: accessToken,
           },
         });
-
         const data = await response.json();
-
         if (response.ok) {
           setUserName(data.userName);
         } else {
@@ -67,6 +65,10 @@ const Navbar = ({ setIsLoggedIn, isLoggedIn }) => {
         <nav className="demo">
           <Link to="/" className="brand">
             <img className="logo" src="logo.png" alt="Logo" />
+            &nbsp;&nbsp;&nbsp;
+            <img className="logo" src="https://amritmahotsav.nic.in/writereaddata/portal/images/logo-black.png" alt="Logo" />
+            &nbsp;&nbsp;&nbsp;
+            <img className="logo" src="https://www.g20.org/content/dam/gtwenty/header-footer/header/g20-logo.png" alt="Logo" />
           </Link>
           <input id="bmenub" type="checkbox" className="show" />
 
@@ -75,6 +77,8 @@ const Navbar = ({ setIsLoggedIn, isLoggedIn }) => {
           </label>
 
           <div className="menu">
+            <Link to="/stats">Stats</Link>
+            <Link to="/jobs">Jobs</Link>
             {isLoggedIn ? (
               <>
                 <span>Welcome, {userName}</span>

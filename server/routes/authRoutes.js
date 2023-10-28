@@ -21,6 +21,7 @@ router.post("/signup/student", async (req, res) => {
       city,
       disability,
       gender,
+      profilePic,
     } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     const student = new Student({
@@ -36,6 +37,7 @@ router.post("/signup/student", async (req, res) => {
       city,
       disability,
       gender,
+      profilePic,
     });
     await student.save();
     res.json({ message: "Student signed up successfully!" });
@@ -57,6 +59,7 @@ router.post("/signup/college", async (req, res) => {
       strength,
       state,
       city,
+      profilePic,
     } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     const college = new College({
@@ -69,6 +72,7 @@ router.post("/signup/college", async (req, res) => {
       strength,
       state,
       city,
+      profilePic,
     });
     await college.save();
     res.json({ message: "College signed up successfully!" });
@@ -142,7 +146,7 @@ router.get("/user/info", verifyToken, async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    res.json({ fullName: user.fullName });
+    res.json({ userName: user.username });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error" });

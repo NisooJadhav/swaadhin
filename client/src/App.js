@@ -6,6 +6,9 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
+import Job from "./components/Job";
+import Stats from "./components/Stats";
+
 import "./style.css";
 
 function App() {
@@ -28,6 +31,8 @@ function App() {
               element={<Login setIsLoggedIn={setIsLoggedIn} />}
             />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/jobs" element={<Job />} />
+            <Route path="/stats" element={<Stats />} />
           </Routes>
         </Router>
       </div>
